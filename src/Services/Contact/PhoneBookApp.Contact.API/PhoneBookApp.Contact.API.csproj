@@ -14,4 +14,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBookApp.Contact.Application\PhoneBookApp.Contact.Application.csproj" />
+  </ItemGroup>
+
 </Project>

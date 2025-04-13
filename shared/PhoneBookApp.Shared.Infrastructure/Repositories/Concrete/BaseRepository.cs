@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PhoneBookApp.Shared.Core.Abstract;
 using PhoneBookApp.Shared.Infrastructure.Repositories.Abstract;
 
 namespace PhoneBookApp.Shared.Infrastructure.Repositories.Concrete
 {
-    public class BaseRepository<TModel>(DbContext context) : IRepository<TModel> where TModel : class
+    public abstract class BaseRepository<TModel>(DbContext context) : IRepository<TModel> where TModel : class, IEntity<Guid>, new()
     {
         protected readonly DbContext _context = context;
         protected readonly DbSet<TModel> _dbSet = context.Set<TModel>();
@@ -15,7 +16,7 @@ namespace PhoneBookApp.Shared.Infrastructure.Repositories.Concrete
 
         public async Task<List<TModel>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _dbSet.ToListAsync(cancellationToken);
+            return await _dbSet.AsNoTracking().ToListAsync(cancellationToken);
         }
 
         public async Task<TModel> AddAsync(TModel entity, CancellationToken cancellationToken = default)

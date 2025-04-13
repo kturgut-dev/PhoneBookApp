@@ -1,16 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PhoneBookApp.Shared.Infrastructure.Context;
 
 namespace PhoneBookApp.Contact.Infrastructure.Context
 {
-    public class ContactDbContext : DbContext
+    public class ContactDbContext(DbContextOptions<ContactDbContext> options) : BaseDbContext(options)
     {
-        public ContactDbContext(DbContextOptions<ContactDbContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<Domain.Concrete.Contact> Contacts => Set<Domain.Concrete.Contact>();
         public DbSet<Domain.Concrete.ContactInfo> ContactInfos => Set<Domain.Concrete.ContactInfo>();
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
