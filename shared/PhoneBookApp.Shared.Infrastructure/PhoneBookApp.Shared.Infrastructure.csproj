@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.4" />
   </ItemGroup>
 
 </Project>

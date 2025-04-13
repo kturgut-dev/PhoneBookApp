@@ -14,6 +14,6 @@ namespace PhoneBookApp.Contact.Domain.Abstract
 
         string? Title { get; set; }
 
-        string? Content { get; set; }
+        string Content { get; set; }
     }
 }

@@ -5,5 +5,10 @@ namespace PhoneBookApp.Shared.Core.Concrete
     public abstract class BaseEntity : IEntity<Guid>
     {
         public Guid Id { get; set; }
+
+        protected BaseEntity()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }
