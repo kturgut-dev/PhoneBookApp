@@ -1,15 +1,78 @@
 version: '3.9'
 
 services:
+  postgres:
+    image: postgres:16
+    container_name: phonebook_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: phonebookdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
   rabbitmq:
     image: rabbitmq:3-management
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-
-  postgres:
-    image: postgres
+    container_name: phonebook_rabbitmq
+    restart: always
     environment:
-      POSTGRES_PASSWORD: password
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     ports:
-      - "5432:5432"
+      - "5673:5672"
+      - "15673:15672"
+
+  contact-api:
+    container_name: contact_api
+    build:
+      context: .
+      dockerfile: Services/Contact/PhoneBookApp.Contact.API/Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+    ports:
+      - "5011:80"     # HTTP
+      - "7011:443"    # HTTPS
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORTS: "443"
+      ASPNETCORE_HTTP_PORTS: "80"
+
+  report-api:
+    container_name: report_api
+    build:
+      context: .
+      dockerfile: Services/Report/PhoneBookApp.Report.API/Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+    ports:
+      - "5012:80"     # HTTP
+      - "7012:443"    # HTTPS
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORTS: "443"
+      ASPNETCORE_HTTP_PORTS: "80"
+
+  gateway:
+    container_name: api_gateway
+    build:
+      context: .
+      dockerfile: PhoneBookApp.Gateway/Dockerfile
+    depends_on:
+      - contact-api
+      - report-api
+    ports:
+      - "5000:80"     # HTTP
+      - "7000:443"    # HTTPS
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORTS: "443"
+      ASPNETCORE_HTTP_PORTS: "80"
+
+volumes:
+  postgres_data:

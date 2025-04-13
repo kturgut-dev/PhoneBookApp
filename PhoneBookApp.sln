@@ -45,6 +45,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Shared.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.API", "src\Report\PhoneBookApp.Report.API\PhoneBookApp.Report.API.csproj", "{28B68446-2C3B-4CF1-8C32-9A625209F571}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{3586E423-2933-4C5B-9C39-CC76352D4DBF}"
+	ProjectSection(SolutionItems) = preProject
+		init.sql = init.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +119,7 @@ Global
 		{2C0E71A4-60FA-4E08-B147-26590FE05196} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
 		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
 		{28B68446-2C3B-4CF1-8C32-9A625209F571} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
+		{3586E423-2933-4C5B-9C39-CC76352D4DBF} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3C09C14-E920-4AC9-8148-7DF1A818B7AB}
