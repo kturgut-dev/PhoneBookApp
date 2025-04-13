@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4AE92D3C-5694-4FE7-A409-264DEA5EF1D6}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{759A0AED-D6BA-4130-9A3A-0B2C03572062}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{F59615E9-03DF-45C9-A618-F0AA9C59E4E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6148167-7BCA-486E-84F8-02D4CB631A07}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactService", "ContactService", "{2D9FF158-CD3F-4455-91B5-31DA00966473}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportService", "ReportService", "{BA99E5AA-6E6B-4B13-935A-3081E121F0C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Shared.Core", "shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj", "{7274BA38-8DE8-44CB-9DA1-EB058A97A965}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
+		{2D9FF158-CD3F-4455-91B5-31DA00966473} = {B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9}
+		{BA99E5AA-6E6B-4B13-935A-3081E121F0C9} = {B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9}
+		{7274BA38-8DE8-44CB-9DA1-EB058A97A965} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3C09C14-E920-4AC9-8148-7DF1A818B7AB}
+	EndGlobalSection
+EndGlobal
