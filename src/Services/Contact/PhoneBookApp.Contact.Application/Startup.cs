@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PhoneBookApp.Contact.Application.Abstract;
+using PhoneBookApp.Contact.Application.Concrete;
 using PhoneBookApp.Contact.Application.Mapping;
 using PhoneBookApp.Contact.Application.Validators;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
@@ -28,9 +30,9 @@ namespace PhoneBookApp.Contact.Application
             services.AddScoped<IContactInfoRepository, ContactInfoRepository>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
-            //// Services
-            //services.AddScoped<IContactService, ContactService>();
-            //services.AddScoped<IContactInfoService, ContactInfoService>();
+            // Services
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IContactInfoService, ContactInfoService>();
 
             // AutoMapper
             services.AddAutoMapper(typeof(ContactProfile).Assembly);
