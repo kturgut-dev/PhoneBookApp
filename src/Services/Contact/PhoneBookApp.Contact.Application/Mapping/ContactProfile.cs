@@ -15,6 +15,8 @@ namespace PhoneBookApp.Contact.Application.Mapping
             CreateMap<ContactCreateRequest, Domain.Concrete.Contact>();
             CreateMap<ContactUpdateRequest, Domain.Concrete.Contact>();
             CreateMap<Domain.Concrete.Contact, ContactResponse>();
+            CreateMap<Domain.Concrete.Contact, ContactWithInfoResponse>();
+
 
             // ContactInfo
             CreateMap<ContactInfoCreateRequest, ContactInfo>();
