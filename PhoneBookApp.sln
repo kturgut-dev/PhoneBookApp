@@ -25,7 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{BA99E5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Shared.Core", "shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj", "{7274BA38-8DE8-44CB-9DA1-EB058A97A965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Contact.Domain", "src\Services\Contact\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj", "{BEF962CA-3370-4358-8C01-26470150BD69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Contact.Domain", "src\Services\Contact\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj", "{4EF7074F-11A4-4E57-A0DF-9918543F445D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Application", "src\Services\Contact\PhoneBookApp.Contact.Application\PhoneBookApp.Contact.Application.csproj", "{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Infrastructure", "src\Services\Contact\PhoneBookApp.Contact.Infrastructure\PhoneBookApp.Contact.Infrastructure.csproj", "{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +41,18 @@ Global
 		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7274BA38-8DE8-44CB-9DA1-EB058A97A965}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEF962CA-3370-4358-8C01-26470150BD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEF962CA-3370-4358-8C01-26470150BD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEF962CA-3370-4358-8C01-26470150BD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEF962CA-3370-4358-8C01-26470150BD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF7074F-11A4-4E57-A0DF-9918543F445D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF7074F-11A4-4E57-A0DF-9918543F445D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF7074F-11A4-4E57-A0DF-9918543F445D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF7074F-11A4-4E57-A0DF-9918543F445D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,7 +62,9 @@ Global
 		{2D9FF158-CD3F-4455-91B5-31DA00966473} = {B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9}
 		{BA99E5AA-6E6B-4B13-935A-3081E121F0C9} = {B907713D-A5AE-42F7-B7D0-D4A4B36B0EA9}
 		{7274BA38-8DE8-44CB-9DA1-EB058A97A965} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
-		{BEF962CA-3370-4358-8C01-26470150BD69} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
+		{4EF7074F-11A4-4E57-A0DF-9918543F445D} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
+		{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
+		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3C09C14-E920-4AC9-8148-7DF1A818B7AB}
