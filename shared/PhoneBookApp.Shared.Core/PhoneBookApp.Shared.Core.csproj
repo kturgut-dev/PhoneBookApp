@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
     <Folder Include="Extensions\" />
     <Folder Include="Utilities\Result\" />
   </ItemGroup>

@@ -24,11 +24,6 @@ namespace PhoneBookApp.Contact.Domain.Abstract
         string? Website { get; set; }
 
         /// <summary>
-        /// Business or office address
-        /// </summary>
-        string? WorkAddress { get; set; }
-
-        /// <summary>
         /// Additional notes or description
         /// </summary>
         string? Note { get; set; }
