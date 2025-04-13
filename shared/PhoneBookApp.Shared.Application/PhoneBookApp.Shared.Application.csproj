@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

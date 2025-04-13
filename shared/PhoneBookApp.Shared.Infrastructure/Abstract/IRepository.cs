@@ -1,4 +1,4 @@
-﻿namespace PhoneBookApp.Shared.Infrastructure.Repositories.Abstract
+﻿namespace PhoneBookApp.Shared.Infrastructure.Abstract
 {
     public interface IRepository<TModel> where TModel : class
     {

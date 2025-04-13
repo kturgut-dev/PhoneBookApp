@@ -1,0 +1,6 @@
+@PhoneBookApp.Gateway_HostAddress = http://localhost:5245
+
+GET {{PhoneBookApp.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

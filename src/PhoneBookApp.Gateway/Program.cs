@@ -1,11 +1,9 @@
-using PhoneBookApp.Contact.Infrastructure.Context;
-using PhoneBookApp.Contact.Infrastructure.DataSeed;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,12 +14,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-
-using (IServiceScope? scope = app.Services.CreateScope())
-{
-    ContactDbContext? context = scope.ServiceProvider.GetRequiredService<ContactDbContext>();
-    await ContactSeeder.SeedAsync(context);
 }
 
 app.UseHttpsRedirection();

@@ -1,4 +1,4 @@
-﻿using PhoneBookApp.Shared.Infrastructure.Repositories.Abstract;
+﻿using PhoneBookApp.Shared.Infrastructure.Abstract;
 
 namespace PhoneBookApp.Contact.Infrastructure.Abstract
 {

@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="xunit" Version="2.9.3" />
@@ -29,7 +30,14 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\shared\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Contact.Application\PhoneBookApp.Contact.Application.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Contact.Infrastructure\PhoneBookApp.Contact.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

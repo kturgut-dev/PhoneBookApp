@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhoneBookApp.Shared.Core.Abstract;
-using PhoneBookApp.Shared.Infrastructure.Repositories.Abstract;
+using PhoneBookApp.Shared.Infrastructure.Abstract;
 
-namespace PhoneBookApp.Shared.Infrastructure.Repositories.Concrete
+namespace PhoneBookApp.Shared.Infrastructure.Concrete
 {
     public abstract class BaseRepository<TModel>(DbContext context) : IRepository<TModel> where TModel : class, IEntity<Guid>, new()
     {

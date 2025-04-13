@@ -1,7 +1,7 @@
 ﻿using PhoneBookApp.Contact.Domain.Concrete;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Context;
-using PhoneBookApp.Shared.Infrastructure.Repositories.Concrete;
+using PhoneBookApp.Shared.Infrastructure.Concrete;
 
 namespace PhoneBookApp.Contact.Infrastructure.Concrete
 {

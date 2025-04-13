@@ -8,8 +8,9 @@ using PhoneBookApp.Contact.Application.Validators;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Concrete;
 using PhoneBookApp.Contact.Infrastructure.Context;
-using PhoneBookApp.Shared.Infrastructure.Repositories.Abstract;
-using PhoneBookApp.Shared.Infrastructure.Repositories.Concrete;
+using PhoneBookApp.Contact.Infrastructure.DataSeed;
+using PhoneBookApp.Shared.Infrastructure.Abstract;
+using PhoneBookApp.Shared.Infrastructure.Concrete;
 
 namespace PhoneBookApp.Contact.Application
 {
