@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Gateway", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Shared.Application", "shared\PhoneBookApp.Shared.Application\PhoneBookApp.Shared.Application.csproj", "{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.API", "src\Report\PhoneBookApp.Report.API\PhoneBookApp.Report.API.csproj", "{28B68446-2C3B-4CF1-8C32-9A625209F571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{1D926065-D20B-4FDF-9A96-8177D545CDEA} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
 		{2C0E71A4-60FA-4E08-B147-26590FE05196} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
 		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
+		{28B68446-2C3B-4CF1-8C32-9A625209F571} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3C09C14-E920-4AC9-8148-7DF1A818B7AB}

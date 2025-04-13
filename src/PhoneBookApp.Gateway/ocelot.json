@@ -1,8 +1,8 @@
 ﻿{
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/contact/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -10,6 +10,18 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/contact/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7136
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/report/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     }
   ],
