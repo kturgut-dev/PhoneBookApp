@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Configurations\" />
-    <Folder Include="Context\" />
     <Folder Include="DataSeed\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Report.Domain\PhoneBookApp.Report.Domain.csproj" />
   </ItemGroup>
 
 </Project>

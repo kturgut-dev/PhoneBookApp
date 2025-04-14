@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Application\PhoneBookApp.Shared.Application.csproj" />
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Report.Application\PhoneBookApp.Report.Application.csproj" />
   </ItemGroup>
 
 </Project>

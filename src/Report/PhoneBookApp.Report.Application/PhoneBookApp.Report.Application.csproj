@@ -7,10 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Mapping\" />
-    <Folder Include="Validators\" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Application\PhoneBookApp.Shared.Application.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Report.Domain\PhoneBookApp.Report.Domain.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Report.Infrastructure\PhoneBookApp.Report.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

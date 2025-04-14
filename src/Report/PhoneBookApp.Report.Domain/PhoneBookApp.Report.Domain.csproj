@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="DataTransferObjects\" />
-    <Folder Include="Enums\" />
+    <ProjectReference Include="..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
   </ItemGroup>
 
 </Project>
