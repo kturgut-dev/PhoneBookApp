@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using PhoneBookApp.Report.Application.Abstract;
 using PhoneBookApp.Report.Application.Concrete;
 using PhoneBookApp.Report.Application.Mapping;
+using PhoneBookApp.Report.Application.Messaging.Consumers;
 using PhoneBookApp.Report.Application.Validators;
 using PhoneBookApp.Report.Infrastructure.Abstract;
 using PhoneBookApp.Report.Infrastructure.Concrete;
@@ -20,7 +22,27 @@ namespace PhoneBookApp.Report.Application
             // DbContext
             services.AddDbContext<ReportDbContext>(options =>
                 options.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<ReportGeneratedEventConsumer>();
 
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host("rabbitmq", h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+
+                    cfg.ReceiveEndpoint("report-generated-event-queue", e =>
+                    {
+                        e.ConfigureConsumer<ReportGeneratedEventConsumer>(context);
+                    });
+                });
+            });
+            
+            services.AddMassTransitHostedService();
 
             // Repository
             services.AddScoped<IReportRepository, ReportRepository>();

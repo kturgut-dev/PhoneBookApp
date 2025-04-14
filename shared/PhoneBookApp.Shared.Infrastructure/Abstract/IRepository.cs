@@ -7,5 +7,7 @@
         Task<TModel> AddAsync(TModel entity, CancellationToken cancellationToken = default);
         Task<bool> UpdateAsync(TModel entity, CancellationToken cancellationToken = default);
         Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using PhoneBookApp.Contact.Application.Abstract;
 using PhoneBookApp.Contact.Application.Concrete;
 using PhoneBookApp.Contact.Application.Mapping;
+using PhoneBookApp.Contact.Application.Messaging.Consumers;
 using PhoneBookApp.Contact.Application.Validators;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Concrete;
@@ -23,6 +25,27 @@ namespace PhoneBookApp.Contact.Application
             // DbContext
             services.AddDbContext<ContactDbContext>(options =>
                 options.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<GenerateReportCommandConsumer>();
+
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host("rabbitmq", h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+
+                    cfg.ReceiveEndpoint("generate-report-command-queue", e =>
+                    {
+                        e.ConfigureConsumer<GenerateReportCommandConsumer>(context);
+                    });
+                });
+            });
+
+            services.AddMassTransitHostedService(); // <== bu satır burada olacak
 
 
             // Repository
