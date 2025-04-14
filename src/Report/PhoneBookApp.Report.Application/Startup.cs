@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -59,6 +60,8 @@ namespace PhoneBookApp.Report.Application
 
             // FluentValidation
             services.AddValidatorsFromAssemblyContaining<ReportCreateRequestValidator>();
+            
+            services.AddFluentValidationAutoValidation(); 
         }
     }
 }
