@@ -46,15 +46,13 @@ namespace PhoneBookApp.Contact.Application
 
             services.AddMassTransitHostedService(); // <== bu satır burada olacak
 
-
-            // Repository
-            services.AddScoped<IContactRepository, ContactRepository>();
-            services.AddScoped<IContactInfoRepository, ContactInfoRepository>();
-            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-
             // Services
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IContactInfoService, ContactInfoService>();
+            
+            // Repository
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactInfoRepository, ContactInfoRepository>();
 
             // AutoMapper
             services.AddAutoMapper(typeof(ContactProfile).Assembly);

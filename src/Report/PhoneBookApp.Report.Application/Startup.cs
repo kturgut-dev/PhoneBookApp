@@ -44,12 +44,12 @@ namespace PhoneBookApp.Report.Application
             
             services.AddMassTransitHostedService();
 
+            // Services
+            services.AddScoped<IReportService, ReportService>();
+            
             // Repository
             services.AddScoped<IReportRepository, ReportRepository>();
             services.AddScoped<IReportDetailRepository, ReportDetailRepository>();
-
-            // Services
-            services.AddScoped<IReportService, ReportService>();
 
             // AutoMapper
             services.AddAutoMapper(typeof(ReportProfile).Assembly);

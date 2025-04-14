@@ -4,7 +4,8 @@ using PhoneBookApp.Contact.Infrastructure.DataSeed;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+Startup startup = new(builder.Configuration, builder.Environment);
+startup.ConfigureServices(builder.Services);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -12,26 +13,19 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-Startup startup = new(app.Configuration, app.Environment);
-startup.ConfigureServices(builder.Services);
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-using (IServiceScope? scope = app.Services.CreateScope())
+using (IServiceScope scope = app.Services.CreateScope())
 {
-    ContactDbContext? context = scope.ServiceProvider.GetRequiredService<ContactDbContext>();
+    ContactDbContext context = scope.ServiceProvider.GetRequiredService<ContactDbContext>();
     await ContactSeeder.SeedAsync(context);
 }
 
-app.UseHttpsRedirection();
-
+// app.UseHttpsRedirection();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
