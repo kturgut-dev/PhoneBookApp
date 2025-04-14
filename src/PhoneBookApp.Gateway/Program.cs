@@ -16,12 +16,11 @@ builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
 
-// Swagger sadece Gateway için (Ocelot için değil)
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
 
 // app.UseHttpsRedirection();
 app.UseAuthorization();
