@@ -18,9 +18,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="vue project add contact serivce">
+    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="allow orıgın">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PhoneBookApp.Gateway/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhoneBookApp.Gateway/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,21 +57,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.PhoneBookApp.Contact.API: http.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/web-panel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.PhoneBookApp.Contact.API: http.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/web-panel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PhoneBookApp.Contact.API: http">
     <configuration name="All Run https" type="CompoundRunConfigurationType">
       <toRun name="PhoneBookApp.Contact.API: https" type="LaunchSettings" />
@@ -282,7 +284,7 @@
       <workItem from="1744621867267" duration="983000" />
       <workItem from="1744622883874" duration="6570000" />
       <workItem from="1744652349610" duration="170000" />
-      <workItem from="1744653617964" duration="3199000" />
+      <workItem from="1744653617964" duration="3882000" />
     </task>
     <task id="LOCAL-00001" summary="command ve event sınıfları Shared.Messaging altına taşındı&#10;&#10;GenerateReportCommand ve ReportGeneratedEvent namespace’leri düzeltildi&#10;&#10;consumer sınıflarında gerekli referans güncellemeleri yapıldı&#10;&#10;contract tabanlı yapı izole şekilde messaging olarak yeniden organize edildi">
       <option name="closed" value="true" />
@@ -364,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744655906413</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="allow orıgın">
+      <option name="closed" value="true" />
+      <created>1744657337458</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744657337458</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,6 +393,7 @@
     <MESSAGE value="fix: enable Swagger UI in production and update configuration for development environment" />
     <MESSAGE value="add vue project" />
     <MESSAGE value="vue project add contact serivce" />
-    <option name="LAST_COMMIT_MESSAGE" value="vue project add contact serivce" />
+    <MESSAGE value="allow orıgın" />
+    <option name="LAST_COMMIT_MESSAGE" value="allow orıgın" />
   </component>
 </project>

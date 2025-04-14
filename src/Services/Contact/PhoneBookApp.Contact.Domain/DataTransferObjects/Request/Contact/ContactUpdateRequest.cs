@@ -1,12 +1,14 @@
 ﻿namespace PhoneBookApp.Contact.Domain.DataTransferObjects.Request.Contact
 {
-    public record ContactUpdateRequest(
-         Guid Id,
-         string Name,
-         string Surname,
-         string Company,
-         string? Nickname,
-         string? Website,
-         string? Note
-     );
+    public class ContactUpdateRequest
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Surname { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
+        public string? Nickname { get; set; }
+        public string? Website { get; set; }
+        public string? Note { get; set; }
+    }
+
 }

@@ -38,6 +38,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 
 var app = builder.Build();
 
+app.UseRouting(); // (ekle)
 app.UseCors("AllowAll");
 
 // if (app.Environment.IsDevelopment())
