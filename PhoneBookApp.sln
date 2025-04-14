@@ -23,17 +23,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contact", "Contact", "{2D9F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{BA99E5AA-6E6B-4B13-935A-3081E121F0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Shared.Core", "shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj", "{7274BA38-8DE8-44CB-9DA1-EB058A97A965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Shared.Core", "shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj", "{7274BA38-8DE8-44CB-9DA1-EB058A97A965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Contact.Domain", "src\Services\Contact\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj", "{4EF7074F-11A4-4E57-A0DF-9918543F445D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Domain", "src\Services\Contact\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj", "{4EF7074F-11A4-4E57-A0DF-9918543F445D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Application", "src\Services\Contact\PhoneBookApp.Contact.Application\PhoneBookApp.Contact.Application.csproj", "{03E6558B-0AEE-4F3E-B89D-0C1D05DF31A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Infrastructure", "src\Services\Contact\PhoneBookApp.Contact.Infrastructure\PhoneBookApp.Contact.Infrastructure.csproj", "{E4DE211B-041B-46CB-B7D8-A4A13ADA7309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Contact.API", "src\Services\Contact\PhoneBookApp.Contact.API\PhoneBookApp.Contact.API.csproj", "{7E872FC6-27E2-4C8C-AAD1-90247408B1F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.API", "src\Services\Contact\PhoneBookApp.Contact.API\PhoneBookApp.Contact.API.csproj", "{7E872FC6-27E2-4C8C-AAD1-90247408B1F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Contact.Tests", "src\Services\Contact\PhoneBookApp.Contact.Tests\PhoneBookApp.Contact.Tests.csproj", "{7B90C9DE-329A-4B96-BEDD-6F90761B341F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Contact.Tests", "src\Services\Contact\PhoneBookApp.Contact.Tests\PhoneBookApp.Contact.Tests.csproj", "{7B90C9DE-329A-4B96-BEDD-6F90761B341F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Shared.Infrastructure", "shared\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj", "{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Shared.Tests", "shared\PhoneBookApp.Shared.Tests\PhoneBookApp.Shared.Tests.csproj", "{1D926065-D20B-4FDF-9A96-8177D545CDEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Gateway", "src\PhoneBookApp.Gateway\PhoneBookApp.Gateway.csproj", "{2C0E71A4-60FA-4E08-B147-26590FE05196}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Shared.Application", "shared\PhoneBookApp.Shared.Application\PhoneBookApp.Shared.Application.csproj", "{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBookApp.Report.API", "src\Report\PhoneBookApp.Report.API\PhoneBookApp.Report.API.csproj", "{28B68446-2C3B-4CF1-8C32-9A625209F571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{3586E423-2933-4C5B-9C39-CC76352D4DBF}"
+	ProjectSection(SolutionItems) = preProject
+		init.sql = init.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.Application", "src\Report\PhoneBookApp.Report.Application\PhoneBookApp.Report.Application.csproj", "{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.Domain", "src\Report\PhoneBookApp.Report.Domain\PhoneBookApp.Report.Domain.csproj", "{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.Infrastructure", "src\Report\PhoneBookApp.Report.Infrastructure\PhoneBookApp.Report.Infrastructure.csproj", "{8B210F1E-3710-4F1D-A379-305B28AAF327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookApp.Report.Tests", "src\Report\PhoneBookApp.Report.Tests\PhoneBookApp.Report.Tests.csproj", "{CE999F2A-4227-44F7-BA1E-8C284E998D93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +88,42 @@ Global
 		{7B90C9DE-329A-4B96-BEDD-6F90761B341F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B90C9DE-329A-4B96-BEDD-6F90761B341F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B90C9DE-329A-4B96-BEDD-6F90761B341F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D926065-D20B-4FDF-9A96-8177D545CDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D926065-D20B-4FDF-9A96-8177D545CDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D926065-D20B-4FDF-9A96-8177D545CDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D926065-D20B-4FDF-9A96-8177D545CDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0E71A4-60FA-4E08-B147-26590FE05196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0E71A4-60FA-4E08-B147-26590FE05196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0E71A4-60FA-4E08-B147-26590FE05196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0E71A4-60FA-4E08-B147-26590FE05196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B68446-2C3B-4CF1-8C32-9A625209F571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B210F1E-3710-4F1D-A379-305B28AAF327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B210F1E-3710-4F1D-A379-305B28AAF327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B210F1E-3710-4F1D-A379-305B28AAF327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B210F1E-3710-4F1D-A379-305B28AAF327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE999F2A-4227-44F7-BA1E-8C284E998D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE999F2A-4227-44F7-BA1E-8C284E998D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE999F2A-4227-44F7-BA1E-8C284E998D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE999F2A-4227-44F7-BA1E-8C284E998D93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +136,16 @@ Global
 		{E4DE211B-041B-46CB-B7D8-A4A13ADA7309} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
 		{7E872FC6-27E2-4C8C-AAD1-90247408B1F7} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
 		{7B90C9DE-329A-4B96-BEDD-6F90761B341F} = {2D9FF158-CD3F-4455-91B5-31DA00966473}
+		{8DD8748F-B28F-4D8C-9417-3F279A5C5FC8} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
+		{1D926065-D20B-4FDF-9A96-8177D545CDEA} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
+		{2C0E71A4-60FA-4E08-B147-26590FE05196} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
+		{CB070D3C-2D6A-4BFF-ABF3-1CF87EF93ACC} = {759A0AED-D6BA-4130-9A3A-0B2C03572062}
+		{28B68446-2C3B-4CF1-8C32-9A625209F571} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
+		{3586E423-2933-4C5B-9C39-CC76352D4DBF} = {F6148167-7BCA-486E-84F8-02D4CB631A07}
+		{8EEC57D2-55A6-4C4C-8618-7C9CD1E94325} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
+		{7C7ACD1B-6B97-42B8-8E81-C85B1C65DF2B} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
+		{8B210F1E-3710-4F1D-A379-305B28AAF327} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
+		{CE999F2A-4227-44F7-BA1E-8C284E998D93} = {BA99E5AA-6E6B-4B13-935A-3081E121F0C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3C09C14-E920-4AC9-8148-7DF1A818B7AB}

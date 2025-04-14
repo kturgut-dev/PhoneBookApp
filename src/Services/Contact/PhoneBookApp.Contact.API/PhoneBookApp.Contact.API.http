@@ -1,6 +1,4 @@
 @PhoneBookApp.Contact.API_HostAddress = http://localhost:5001
 
-GET {{PhoneBookApp.Contact.API_HostAddress}}/weatherforecast/
-Accept: application/json
 
 ###

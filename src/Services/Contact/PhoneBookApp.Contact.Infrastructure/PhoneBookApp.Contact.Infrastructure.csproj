@@ -7,9 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Configurations\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\shared\PhoneBookApp.Shared.Core\PhoneBookApp.Shared.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\shared\PhoneBookApp.Shared.Infrastructure\PhoneBookApp.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\PhoneBookApp.Contact.Domain\PhoneBookApp.Contact.Domain.csproj" />
   </ItemGroup>
 
 </Project>
