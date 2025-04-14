@@ -17,7 +17,7 @@ async function removeContact(id) {
 }
 
 function goToCreate() {
-  router.push('/create')
+  router.push('/contact/form')
 }
 
 onMounted(fetchContacts)

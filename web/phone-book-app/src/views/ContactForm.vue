@@ -16,6 +16,7 @@ onMounted(async () => {
 })
 
 async function submit() {
+  console.log(id)
   if (id) await updateContact(id, form.value)
   else await createContact(form.value)
   router.push('/')
@@ -28,6 +29,7 @@ async function submit() {
     <form @submit.prevent="submit">
       <div class="mb-3">
         <label>Ad</label>
+        <input v-if="id" v-model="form.id" hidden="hidden" class="form-control" required />
         <input v-model="form.name" class="form-control" required />
       </div>
       <div class="mb-3">
