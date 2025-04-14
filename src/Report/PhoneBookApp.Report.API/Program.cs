@@ -12,8 +12,6 @@ Startup startup = new(builder.Configuration, builder.Environment);
 startup.ConfigureServices(builder.Services);
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
@@ -24,6 +22,11 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
 
 
 builder.WebHost.ConfigureKestrel(serverOptions =>

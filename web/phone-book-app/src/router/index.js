@@ -16,6 +16,12 @@ const router = createRouter({
       name: 'contact.form',
       component: ContactForm,
     },
+    {
+      path: '/contact/form/:id',
+      name: 'contact.edit',
+      component: ContactForm,
+      props: true,
+    },
   ],
 })
 
