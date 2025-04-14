@@ -18,7 +18,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="" />
+    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="fix: enable Swagger UI in production and update configuration for development environment">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +31,11 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -52,6 +60,7 @@
     ".NET Launch Settings Profile.PhoneBookApp.Contact.API: http.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/web-panel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -273,6 +282,7 @@
       <workItem from="1744621867267" duration="983000" />
       <workItem from="1744622883874" duration="6570000" />
       <workItem from="1744652349610" duration="170000" />
+      <workItem from="1744653617964" duration="369000" />
     </task>
     <task id="LOCAL-00001" summary="command ve event sınıfları Shared.Messaging altına taşındı&#10;&#10;GenerateReportCommand ve ReportGeneratedEvent namespace’leri düzeltildi&#10;&#10;consumer sınıflarında gerekli referans güncellemeleri yapıldı&#10;&#10;contract tabanlı yapı izole şekilde messaging olarak yeniden organize edildi">
       <option name="closed" value="true" />
@@ -322,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744652446788</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix: enable Swagger UI in production and update configuration for development environment">
+      <option name="closed" value="true" />
+      <created>1744653701416</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744653701416</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +356,7 @@
     <MESSAGE value="feat: implement GetAllAsync and GetByIdAsync methods in ReportService and update ReportController for new endpoints" />
     <MESSAGE value="refactor: reorganize service and repository registrations in Startup files and update DbContext usage in services" />
     <MESSAGE value="feat: add Entity Framework Core design packages and update connection strings for development and Docker environments" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Entity Framework Core design packages and update connection strings for development and Docker environments" />
+    <MESSAGE value="fix: enable Swagger UI in production and update configuration for development environment" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: enable Swagger UI in production and update configuration for development environment" />
   </component>
 </project>
