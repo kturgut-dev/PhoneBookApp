@@ -8,50 +8,39 @@ using PhoneBookApp.Shared.Core.Messaging.Report;
 
 namespace PhoneBookApp.Contact.Application.Messaging.Consumers;
 
-public class GenerateReportCommandConsumer : IConsumer<GenerateReportCommand>
-    {
-        private readonly ContactDbContext _context;
-        private readonly IPublishEndpoint _publishEndpoint;
-
-        public GenerateReportCommandConsumer(ContactDbContext context, IPublishEndpoint publishEndpoint)
+public class GenerateReportCommandConsumer(ContactDbContext _contactDbContext, IPublishEndpoint _publishEndpoint)
+    : IConsumer<GenerateReportCommand>
+{
+    public async Task Consume(ConsumeContext<GenerateReportCommand> context)
         {
-            _context = context;
-            _publishEndpoint = publishEndpoint;
-        }
-
-        public async Task Consume(ConsumeContext<GenerateReportCommand> context)
-        {
-            var locations = await _context.ContactInfos
+            List<string>? locations = await _contactDbContext.ContactInfos
                 .Where(x => x.InfoType == ContactInfoType.Location)
                 .Select(x => x.Content)
                 .Distinct()
                 .ToListAsync();
 
-            var details = new List<ReportGeneratedDetail>();
+            List<ReportGeneratedDetail> details = new List<ReportGeneratedDetail>();
 
-            foreach (var location in locations)
+            foreach (string location in locations)
             {
-                var contactIds = await _context.ContactInfos
+                List<Guid> contactIds = await _contactDbContext.ContactInfos
                     .Where(x => x.InfoType == ContactInfoType.Location && x.Content == location)
                     .Select(x => x.ContactId)
                     .Distinct()
                     .ToListAsync();
 
-                var persons = await _context.Contacts
+                List<Domain.Concrete.Contact> persons = await _contactDbContext.Contacts
                     .Where(x => contactIds.Contains(x.Id))
                     .ToListAsync();
 
-                var phoneCount = await _context.ContactInfos
+                int phoneCount = await _contactDbContext.ContactInfos
                     .CountAsync(x => x.InfoType == ContactInfoType.PhoneNumber && contactIds.Contains(x.ContactId));
-
-                var rawData = JsonSerializer.Serialize(persons);
 
                 details.Add(new ReportGeneratedDetail
                 {
                     Location = location,
                     PersonCount = persons.Count,
                     PhoneNumberCount = phoneCount,
-                    RawDataJson = rawData
                 });
             }
 

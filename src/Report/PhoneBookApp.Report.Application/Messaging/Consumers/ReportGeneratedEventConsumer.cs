@@ -7,33 +7,26 @@ using PhoneBookApp.Shared.Core.Messaging.Events;
 
 namespace PhoneBookApp.Report.Application.Messaging.Consumers;
 
-public class ReportGeneratedEventConsumer : IConsumer<ReportGeneratedEvent>
+public class ReportGeneratedEventConsumer(ReportDbContext _reportDbContext) : IConsumer<ReportGeneratedEvent>
 {
-    private readonly ReportDbContext _context;
-
-    public ReportGeneratedEventConsumer(ReportDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task Consume(ConsumeContext<ReportGeneratedEvent> context)
     {
-        var details = context.Message.Details.Select(x => new ReportDetail
+        List<ReportDetail> details = context.Message.Details.Select(x => new ReportDetail
         {
-            ReportId = context.Message.ReportId,
+            ReportId = context.Message.ReportId, 
             Location = x.Location,
             PersonCount = x.PersonCount,
             PhoneNumberCount = x.PhoneNumberCount,
         }).ToList();
 
-        await _context.ReportDetails.AddRangeAsync(details);
+        await _reportDbContext.ReportDetails.AddRangeAsync(details);
 
-        var report = await _context.Reports.FirstOrDefaultAsync(x => x.Id == context.Message.ReportId);
+        Domain.Concrete.Report? report = await _reportDbContext.Reports.FirstOrDefaultAsync(x => x.Id == context.Message.ReportId);
         if (report != null)
         {
             report.Status = ReportStatus.Completed;
         }
 
-        await _context.SaveChangesAsync();
+        await _reportDbContext.SaveChangesAsync();
     }
 }
