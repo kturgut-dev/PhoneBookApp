@@ -43,6 +43,9 @@ public class GenerateReportCommandConsumer(ContactDbContext _contactDbContext, I
                     PhoneNumberCount = phoneCount,
                 });
             }
+            
+            // thread sleep for 5 seconds - uzun sürmesi için
+            await Task.Delay(5000);
 
             await _publishEndpoint.Publish(new ReportGeneratedEvent
             {

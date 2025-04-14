@@ -1,18 +1,32 @@
 version: '3.9'
 
 services:
-  postgres:
+  contact_postgres:
     image: postgres:16
-    container_name: phonebook_postgres
+    container_name: phonebook_contact_postgres
     restart: always
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: phonebookdb
+      POSTGRES_DB: contactdb
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - contact_pg_data:/var/lib/postgresql/data
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  report_postgres:
+    image: postgres:16
+    container_name: phonebook_report_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: reportdb
+    ports:
+      - "5435:5432"
+    volumes:
+      - report_pg_data:/var/lib/postgresql/data
       - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   rabbitmq:
@@ -30,13 +44,13 @@ services:
     container_name: contact_api
     build:
       context: .
-      dockerfile: Services/Contact/PhoneBookApp.Contact.API/Dockerfile
+      dockerfile: src/Services/Contact/PhoneBookApp.Contact.API/Dockerfile
     depends_on:
-      - postgres
+      - contact_postgres
       - rabbitmq
     ports:
-      - "5011:80"     # HTTP
-      - "7011:443"    # HTTPS
+      - "5011:80"
+      - "7011:443"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTPS_PORTS: "443"
@@ -46,13 +60,13 @@ services:
     container_name: report_api
     build:
       context: .
-      dockerfile: Services/Report/PhoneBookApp.Report.API/Dockerfile
+      dockerfile: src/Report/PhoneBookApp.Report.API/Dockerfile
     depends_on:
-      - postgres
+      - report_postgres
       - rabbitmq
     ports:
-      - "5012:80"     # HTTP
-      - "7012:443"    # HTTPS
+      - "5012:80"
+      - "7012:443"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTPS_PORTS: "443"
@@ -62,17 +76,18 @@ services:
     container_name: api_gateway
     build:
       context: .
-      dockerfile: PhoneBookApp.Gateway/Dockerfile
+      dockerfile: src/PhoneBookApp.Gateway/Dockerfile
     depends_on:
       - contact-api
       - report-api
     ports:
-      - "5000:80"     # HTTP
-      - "7000:443"    # HTTPS
+      - "5000:80"
+      - "7000:443"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTPS_PORTS: "443"
       ASPNETCORE_HTTP_PORTS: "80"
 
 volumes:
-  postgres_data:
+  contact_pg_data:
+  report_pg_data:

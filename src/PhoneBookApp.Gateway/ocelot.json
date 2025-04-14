@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7028
+          "Host": "contact-api",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/gateway/contact/{everything}",
@@ -14,11 +14,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7136
+          "Host": "report-api",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/gateway/report/{everything}",
@@ -26,6 +26,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7278"
+    "BaseUrl": "https://localhost:7000"
   }
 }

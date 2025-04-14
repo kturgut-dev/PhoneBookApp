@@ -1,3 +1,4 @@
+using PhoneBookApp.Contact.Application;
 using PhoneBookApp.Contact.Infrastructure.Context;
 using PhoneBookApp.Contact.Infrastructure.DataSeed;
 
@@ -10,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+Startup startup = new(app.Configuration, app.Environment);
+startup.ConfigureServices(builder.Services);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
