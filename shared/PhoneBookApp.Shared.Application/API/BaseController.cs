@@ -8,40 +8,21 @@ namespace PhoneBookApp.Shared.Application.API
     [ApiController]
     [Route("api/[controller]")]
     public abstract class BaseController<TModel, TCreateRequest, TUpdateRequest, TResponse>(
-       IBaseService<TModel, TCreateRequest, TUpdateRequest, TResponse> _service)
-       : ControllerBase
-       where TModel : class, IEntity<Guid>
+        IBaseService<TModel, TCreateRequest, TUpdateRequest, TResponse> _service)
+        : BaseController<TModel>
+        where TModel : class, IEntity<Guid>
     {
-
-        [NonAction]
-        public IActionResult ReturnResult(Result result)
-        {
-            if (result.IsSuccess)
-                return Ok(result);
-
-            return BadRequest(result);
-        }
-
-        [NonAction]
-        public IActionResult ReturnResult<T>(Result<T> result)
-        {
-            if (result.IsSuccess)
-                return Ok(result);
-
-            return BadRequest(result);
-
-        }
-
-
         [HttpPost]
-        public virtual async Task<IActionResult> Add([FromBody] TCreateRequest request, CancellationToken cancellationToken)
+        public virtual async Task<IActionResult> Add([FromBody] TCreateRequest request,
+            CancellationToken cancellationToken)
         {
             Result<TResponse> result = await _service.AddAsync(request, cancellationToken);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
 
         [HttpPut]
-        public virtual async Task<IActionResult> Update([FromBody] TUpdateRequest request, CancellationToken cancellationToken)
+        public virtual async Task<IActionResult> Update([FromBody] TUpdateRequest request,
+            CancellationToken cancellationToken)
         {
             Result result = await _service.UpdateAsync(request, cancellationToken);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
@@ -66,6 +47,31 @@ namespace PhoneBookApp.Shared.Application.API
         {
             Result<List<TResponse>> result = await _service.GetAllAsync(cancellationToken);
             return Ok(result);
+        }
+    }
+
+    [ApiController]
+    [Route("api/[controller]")]
+    public abstract class BaseController<TModel>
+        : ControllerBase
+        where TModel : class, IEntity<Guid>
+    {
+        [NonAction]
+        public IActionResult ReturnResult(Result result)
+        {
+            if (result.IsSuccess)
+                return Ok(result);
+
+            return BadRequest(result);
+        }
+        
+        [NonAction]
+        public IActionResult ReturnResult<T>(Result<T> result)
+        {
+            if (result.IsSuccess)
+                return Ok(result);
+
+            return BadRequest(result);
         }
     }
 }

@@ -39,5 +39,10 @@ namespace PhoneBookApp.Shared.Infrastructure.Concrete
             _dbSet.Remove(entity);
             return true;
         }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

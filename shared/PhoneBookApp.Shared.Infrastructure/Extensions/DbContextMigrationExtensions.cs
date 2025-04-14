@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
 namespace PhoneBookApp.Shared.Infrastructure.Extensions
 {
     public static class DbContextMigrationExtensions
@@ -16,10 +17,6 @@ namespace PhoneBookApp.Shared.Infrastructure.Extensions
             {
                 await context.Database.EnsureCreatedAsync();
             }
-            //else
-            //{
-            //    await context.Database.MigrateAsync();
-            //}
         }
     }
 }

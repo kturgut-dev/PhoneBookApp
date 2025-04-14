@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using PhoneBookApp.Contact.Application.Concrete;
 using PhoneBookApp.Contact.Application.Mapping;
 using PhoneBookApp.Contact.Domain.Concrete;
@@ -10,7 +9,6 @@ using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Concrete;
 using PhoneBookApp.Contact.Infrastructure.Context;
 using PhoneBookApp.Shared.Core.Utilities.Result;
-using PhoneBookApp.Shared.Infrastructure.Context;
 
 namespace PhoneBookApp.Contact.Tests.Services
 {
@@ -23,13 +21,9 @@ namespace PhoneBookApp.Contact.Tests.Services
 
         public ContactServiceTests()
         {
-            DbContextOptions<ContactDbContext> options = new DbContextOptionsBuilder<ContactDbContext>()
-                .UseInMemoryDatabase(Guid.NewGuid().ToString())
-                .Options;
+            _context = ContactDbContextFactory.Create();
 
-            _context = new ContactDbContext(options);
-
-            var mapperConfig = new MapperConfiguration(cfg =>
+            MapperConfiguration mapperConfig = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new ContactProfile());
             });
