@@ -12,8 +12,6 @@ using PhoneBookApp.Contact.Application.Validators;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Concrete;
 using PhoneBookApp.Contact.Infrastructure.Context;
-using PhoneBookApp.Shared.Infrastructure.Abstract;
-using PhoneBookApp.Shared.Infrastructure.Concrete;
 
 namespace PhoneBookApp.Contact.Application
 {
@@ -31,10 +29,13 @@ namespace PhoneBookApp.Contact.Application
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
+                    string host = _configuration["RabbitMq:Host"];
+                    ushort port = ushort.Parse(_configuration["RabbitMq:Port"] ?? "5672");
+
                     cfg.Host("rabbitmq", h =>
                     {
-                        h.Username("guest");
-                        h.Password("guest");
+                        h.Username(_configuration["RabbitMq:Username"]);
+                        h.Password(_configuration["RabbitMq:Password"]);
                     });
 
                     cfg.ReceiveEndpoint("generate-report-command-queue", e =>
@@ -49,7 +50,7 @@ namespace PhoneBookApp.Contact.Application
             // Services
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IContactInfoService, ContactInfoService>();
-            
+
             // Repository
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IContactInfoRepository, ContactInfoRepository>();

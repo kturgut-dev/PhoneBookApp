@@ -22,17 +22,20 @@ namespace PhoneBookApp.Report.Application
             // DbContext
             services.AddDbContext<ReportDbContext>(options =>
                 options.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")));
-            
+
             services.AddMassTransit(x =>
             {
                 x.AddConsumer<ReportGeneratedEventConsumer>();
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
+                    string host = _configuration["RabbitMq:Host"];
+                    ushort port = ushort.Parse(_configuration["RabbitMq:Port"] ?? "5672");
+
                     cfg.Host("rabbitmq", h =>
                     {
-                        h.Username("guest");
-                        h.Password("guest");
+                        h.Username(_configuration["RabbitMq:Username"]);
+                        h.Password(_configuration["RabbitMq:Password"]);
                     });
 
                     cfg.ReceiveEndpoint("report-generated-event-queue", e =>
@@ -41,12 +44,12 @@ namespace PhoneBookApp.Report.Application
                     });
                 });
             });
-            
+
             services.AddMassTransitHostedService();
 
             // Services
             services.AddScoped<IReportService, ReportService>();
-            
+
             // Repository
             services.AddScoped<IReportRepository, ReportRepository>();
             services.AddScoped<IReportDetailRepository, ReportDetailRepository>();
