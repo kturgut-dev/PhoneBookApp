@@ -18,7 +18,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="fix: enable Swagger UI in production and update configuration for development environment" />
+    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="add vue project">
+      <change afterPath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PhoneBookApp.Gateway/ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/PhoneBookApp.Gateway/ocelot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/services/contactService.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/services/contactService.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -279,7 +292,7 @@
       <workItem from="1744621867267" duration="983000" />
       <workItem from="1744622883874" duration="6570000" />
       <workItem from="1744652349610" duration="170000" />
-      <workItem from="1744653617964" duration="797000" />
+      <workItem from="1744653617964" duration="2153000" />
     </task>
     <task id="LOCAL-00001" summary="command ve event sınıfları Shared.Messaging altına taşındı&#10;&#10;GenerateReportCommand ve ReportGeneratedEvent namespace’leri düzeltildi&#10;&#10;consumer sınıflarında gerekli referans güncellemeleri yapıldı&#10;&#10;contract tabanlı yapı izole şekilde messaging olarak yeniden organize edildi">
       <option name="closed" value="true" />
@@ -345,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744654280377</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add vue project">
+      <option name="closed" value="true" />
+      <created>1744654843515</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744654843515</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +383,7 @@
     <MESSAGE value="refactor: reorganize service and repository registrations in Startup files and update DbContext usage in services" />
     <MESSAGE value="feat: add Entity Framework Core design packages and update connection strings for development and Docker environments" />
     <MESSAGE value="fix: enable Swagger UI in production and update configuration for development environment" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: enable Swagger UI in production and update configuration for development environment" />
+    <MESSAGE value="add vue project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add vue project" />
   </component>
 </project>
