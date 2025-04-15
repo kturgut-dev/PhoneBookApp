@@ -20,6 +20,10 @@ function goToCreate() {
   router.push('/contact/form')
 }
 
+function goToReports() {
+  router.push('/reports')
+}
+
 onMounted(fetchContacts)
 </script>
 
@@ -27,7 +31,10 @@ onMounted(fetchContacts)
   <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center">
       <h4>Kisi Listesi</h4>
-      <button class="btn btn-success" @click="goToCreate">Kisi Ekle</button>
+      <div>
+        <button class="btn btn-secondary me-2" @click="goToReports">Raporlar</button>
+        <button class="btn btn-success" @click="goToCreate">Kisi Ekle</button>
+      </div>
     </div>
 
     <div class="row mt-3">
@@ -35,7 +42,7 @@ onMounted(fetchContacts)
         <div class="card mb-3 p-2">
           <h6>{{ item.name }} {{ item.surname }}</h6>
           <p>{{ item.company }}</p>
-          <button class="btn btn-sm btn-primary me-2" @click="router.push(`/contact/form/${item.id}`)">Güncelle</button>
+          <button class="btn btn-sm btn-primary mb-2" @click="router.push(`/contact/form/${item.id}`)">Güncelle</button>
           <button class="btn btn-sm btn-danger" @click="removeContact(item.id)">Sil</button>
         </div>
       </div>

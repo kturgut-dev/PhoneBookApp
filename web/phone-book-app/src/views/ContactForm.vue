@@ -21,7 +21,7 @@ const form = ref({
 })
 
 const newInfo = ref({
-  infoType: 'PhoneNumber',
+  infoType: 0,
   title: '',
   content: ''
 })
@@ -54,7 +54,7 @@ async function addInfo() {
 
   const data = {
     contactId: form.value.id,
-    infoType: newInfo.value.infoType,
+    infoType: Number(newInfo.value.infoType),
     title: newInfo.value.title,
     content: newInfo.value.content
   }
@@ -63,7 +63,7 @@ async function addInfo() {
   const infos = await getContactInfos(form.value.id)
   form.value.contactInfos = infos.data.data
 
-  newInfo.value = { infoType: 'PhoneNumber', title: '', content: '' }
+  newInfo.value = { infoType: 0, title: '', content: '' }
 }
 
 async function removeInfo(id) {
@@ -98,10 +98,10 @@ async function removeInfo(id) {
       <form class="row g-3" @submit.prevent="addInfo">
         <div class="col-md-3">
           <select v-model="newInfo.infoType" class="form-select">
-            <option value="PhoneNumber">Telefon</option>
-            <option value="Email">Email</option>
-            <option value="Location">Konum</option>
-            <option value="Anniversary">Yıldönümü</option>
+            <option value="0">PhoneNumber</option>
+            <option value="1">Email</option>
+            <option value="2">Location</option>
+            <option value="3">Anniversary</option>
           </select>
         </div>
         <div class="col-md-3">
