@@ -7,6 +7,7 @@ using PhoneBookApp.Contact.Domain.DataTransferObjects.Response.ContactInfo;
 using PhoneBookApp.Contact.Infrastructure.Abstract;
 using PhoneBookApp.Contact.Infrastructure.Context;
 using PhoneBookApp.Shared.Application.Concrete;
+using PhoneBookApp.Shared.Core.Utilities.Result;
 
 namespace PhoneBookApp.Contact.Application.Concrete
 {
@@ -17,5 +18,12 @@ namespace PhoneBookApp.Contact.Application.Concrete
          : BaseService<ContactInfo, ContactInfoCreateRequest, ContactInfoUpdateRequest, ContactInfoResponse>(repository, mapper, context),
            IContactInfoService
     {
+        public async Task<Result<List<ContactInfoResponse>>> GetByContactIdAsync(Guid contactId, CancellationToken cancellationToken = default)
+        {
+            List<ContactInfo> infos = await _repository.GetAllAsync(x => x.ContactId == contactId, cancellationToken);
+            List<ContactInfoResponse> response = _mapper.Map<List<ContactInfoResponse>>(infos);
+            return Result<List<ContactInfoResponse>>.Success(response);
+        }
+
     }
 }

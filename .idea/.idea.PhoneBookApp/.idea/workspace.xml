@@ -18,11 +18,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="refactor: update contact request models to use classes and enhance CORS configuration">
+    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="feat: add FluentValidation.AspNetCore package and configure auto validation in services">
+      <change afterPath="$PROJECT_DIR$/web/phone-book-app/src/services/contactInfoService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/services/contactService.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/services/contactService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/views/ContactList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +284,7 @@
       <workItem from="1744622883874" duration="6570000" />
       <workItem from="1744652349610" duration="170000" />
       <workItem from="1744653617964" duration="3882000" />
-      <workItem from="1744664376778" duration="1093000" />
+      <workItem from="1744664376778" duration="1941000" />
     </task>
     <task id="LOCAL-00001" summary="command ve event sınıfları Shared.Messaging altına taşındı&#10;&#10;GenerateReportCommand ve ReportGeneratedEvent namespace’leri düzeltildi&#10;&#10;consumer sınıflarında gerekli referans güncellemeleri yapıldı&#10;&#10;contract tabanlı yapı izole şekilde messaging olarak yeniden organize edildi">
       <option name="closed" value="true" />
@@ -383,7 +382,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744664692125</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refactor: enhance contact request models with constructors and update API endpoints">
+      <option name="closed" value="true" />
+      <created>1744665583347</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744665583347</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: add FluentValidation.AspNetCore package and configure auto validation in services">
+      <option name="closed" value="true" />
+      <created>1744665784786</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744665784786</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +419,8 @@
     <MESSAGE value="vue project add contact serivce" />
     <MESSAGE value="allow orıgın" />
     <MESSAGE value="refactor: update contact request models to use classes and enhance CORS configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update contact request models to use classes and enhance CORS configuration" />
+    <MESSAGE value="refactor: enhance contact request models with constructors and update API endpoints" />
+    <MESSAGE value="feat: add FluentValidation.AspNetCore package and configure auto validation in services" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add FluentValidation.AspNetCore package and configure auto validation in services" />
   </component>
 </project>
