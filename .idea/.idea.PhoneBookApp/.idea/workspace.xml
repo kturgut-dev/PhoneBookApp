@@ -18,18 +18,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="feat: add report creation and detail views, update contact form info type handling">
+    <list default="true" id="fe01f93b-d243-4f99-b9a4-8d837fd8e298" name="Changes" comment="feat: enhance report creation and detail views, update report service and routing">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Domain/DataTransferObjects/Response/ReportDetailResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PhoneBookApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/appsettings.Docker.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.API/appsettings.Docker.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Messaging/Consumers/ReportGeneratedEventConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Messaging/Consumers/ReportGeneratedEventConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Domain/DataTransferObjects/Request/ReportCreateRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Domain/DataTransferObjects/Request/ReportCreateRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/appsettings.Docker.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.API/appsettings.Docker.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/PhoneBookApp.Shared.Infrastructure/Abstract/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shared/PhoneBookApp.Shared.Infrastructure/Abstract/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/PhoneBookApp.Shared.Infrastructure/Concrete/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shared/PhoneBookApp.Shared.Infrastructure/Concrete/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Concrete/ReportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Concrete/ReportService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Mapping/ReportProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Application/Mapping/ReportProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Domain/DataTransferObjects/Response/ReportResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Report/PhoneBookApp.Report.Domain/DataTransferObjects/Response/ReportResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.Application/Messaging/Consumers/GenerateReportCommandConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.Application/Messaging/Consumers/GenerateReportCommandConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.Application/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Contact/PhoneBookApp.Contact.Application/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/services/reportService.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/services/reportService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/phone-book-app/src/views/ReportView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/phone-book-app/src/views/ReportView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +67,10 @@
     ".NET Launch Settings Profile.PhoneBookApp.Contact.API: http.executor": "Debug",
     ".NET Launch Settings Profile.PhoneBookApp.Gateway: http.executor": "Debug",
     ".NET Launch Settings Profile.PhoneBookApp.Report.API: http.executor": "Debug",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "feature/web-panel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -78,6 +79,11 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Compound.Unnamed">
@@ -300,7 +306,7 @@
       <workItem from="1744622883874" duration="6570000" />
       <workItem from="1744652349610" duration="170000" />
       <workItem from="1744653617964" duration="3882000" />
-      <workItem from="1744664376778" duration="6498000" />
+      <workItem from="1744664376778" duration="8361000" />
     </task>
     <task id="LOCAL-00001" summary="command ve event sınıfları Shared.Messaging altına taşındı&#10;&#10;GenerateReportCommand ve ReportGeneratedEvent namespace’leri düzeltildi&#10;&#10;consumer sınıflarında gerekli referans güncellemeleri yapıldı&#10;&#10;contract tabanlı yapı izole şekilde messaging olarak yeniden organize edildi">
       <option name="closed" value="true" />
@@ -430,7 +436,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744693545471</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: enhance report creation and detail views, update report service and routing">
+      <option name="closed" value="true" />
+      <created>1744697023406</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1744697023406</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,6 +469,7 @@
     <MESSAGE value="feat: add FluentValidation.AspNetCore package and configure auto validation in services" />
     <MESSAGE value="feat: implement contact info service with CRUD operations and integrate into contact form" />
     <MESSAGE value="feat: add report creation and detail views, update contact form info type handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add report creation and detail views, update contact form info type handling" />
+    <MESSAGE value="feat: enhance report creation and detail views, update report service and routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: enhance report creation and detail views, update report service and routing" />
   </component>
 </project>

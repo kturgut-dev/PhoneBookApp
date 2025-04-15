@@ -48,7 +48,7 @@ onMounted(fetchReports)
         <td>{{ new Date(report.requestedAt).toLocaleString() }}</td>
         <td>{{ report.status }}</td>
         <td>
-          <button class="btn btn-primary" @click="router.push(`/report/${item.id}`)">Detay</button>
+          <button class="btn btn-primary" @click="router.push(`/report/${report.id}`)">Detay</button>
         </td>
       </tr>
       </tbody>

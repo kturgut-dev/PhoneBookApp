@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace PhoneBookApp.Shared.Infrastructure.Abstract
 {
@@ -15,5 +16,7 @@ namespace PhoneBookApp.Shared.Infrastructure.Abstract
         Task<List<TModel>> GetAllAsync(
             Expression<Func<TModel, bool>> predicate,
             CancellationToken cancellationToken = default);
+        
+        DbSet<TModel> GetDbSet();
     }
 }

@@ -52,5 +52,10 @@ namespace PhoneBookApp.Shared.Infrastructure.Concrete
                 ? GetAllAsync(cancellationToken)
                 : _dbSet.AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
         }
+
+        public DbSet<TModel> GetDbSet()
+        {
+            return _context.Set<TModel>();
+        }
     }
 }

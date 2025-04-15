@@ -39,7 +39,7 @@ namespace PhoneBookApp.Report.Application
                         h.Password(_configuration["RabbitMq:Password"]);
                     });
                     
-                    cfg.ConfigureEndpoints(context);
+                    // cfg.ConfigureEndpoints(context);
 
                     cfg.ReceiveEndpoint("report-generated-event-queue", e =>
                     {

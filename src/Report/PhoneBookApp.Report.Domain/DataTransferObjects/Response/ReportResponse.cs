@@ -6,5 +6,7 @@
         public DateTime RequestedAt { get; set; }
         public string Status { get; set; }
         public string Name { get; set; }
+
+        public List<ReportDetailResponse> Details { get; set; } = new ();
     }
 }
