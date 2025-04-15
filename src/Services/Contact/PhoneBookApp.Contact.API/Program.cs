@@ -43,6 +43,8 @@ app.UseCors("AllowAll");
 // {
 app.UseSwagger();
 app.UseSwaggerUI();
+// if (app.Environment.IsDevelopment())
+// {
 // }
 // if (app.Environment.IsDevelopment())
 // {
