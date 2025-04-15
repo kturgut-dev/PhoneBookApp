@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using PhoneBookApp.Shared.Core.Abstract;
 
@@ -36,6 +37,26 @@ namespace PhoneBookApp.Shared.Infrastructure.Context
             }
 
             return await base.SaveChangesAsync(cancellationToken);
+        }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            foreach (Microsoft.EntityFrameworkCore.Metadata.IMutableEntityType entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                Type clrType = entityType.ClrType;
+
+                if (typeof(IAuditableEntity).IsAssignableFrom(clrType))
+                {
+                    ParameterExpression parameter = Expression.Parameter(clrType, "e");
+                    MemberExpression isDeletedProp = Expression.Property(parameter, nameof(IAuditableEntity.IsDeleted));
+                    BinaryExpression filter = Expression.Equal(isDeletedProp, Expression.Constant(false));
+                    LambdaExpression lambda = Expression.Lambda(filter, parameter);
+
+                    modelBuilder.Entity(clrType).HasQueryFilter(lambda);
+                }
+            }
         }
     }
 }

@@ -11,5 +11,10 @@ namespace PhoneBookApp.Contact.API.Controllers
     public class ContactInfoController(IContactInfoService _service)
           : BaseController<Domain.Concrete.ContactInfo, ContactInfoCreateRequest, ContactInfoUpdateRequest, ContactInfoResponse>(_service)
     {
+        [HttpGet("list/{contactId:guid}")]
+        public async Task<IActionResult> GetByContactId(Guid contactId, CancellationToken cancellationToken = default)
+        {
+            return ReturnResult(await _service.GetByContactIdAsync(contactId, cancellationToken));
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneBookApp.Report.Application.Abstract;
+using PhoneBookApp.Report.Domain.DataTransferObjects.Request;
 using PhoneBookApp.Shared.Application.API;
 
 namespace PhoneBookApp.Report.API.Controllers
@@ -9,9 +10,9 @@ namespace PhoneBookApp.Report.API.Controllers
     public class ReportController(IReportService _service) : BaseController<Domain.Concrete.Report>
     {
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] string name, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromBody] ReportCreateRequest data, CancellationToken cancellationToken)
         {
-            var result = await _service.StartReportAsync(name, cancellationToken);
+            var result = await _service.StartReportAsync(data.Name, cancellationToken);
             if (!result.IsSuccess)
                 return BadRequest(result);
 

@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,16 +33,19 @@ namespace PhoneBookApp.Report.Application
                     string host = _configuration["RabbitMq:Host"];
                     ushort port = ushort.Parse(_configuration["RabbitMq:Port"] ?? "5672");
 
-                    cfg.Host("rabbitmq", h =>
+                    cfg.Host(host, h =>
                     {
                         h.Username(_configuration["RabbitMq:Username"]);
                         h.Password(_configuration["RabbitMq:Password"]);
                     });
+                    
+                    // cfg.ConfigureEndpoints(context);
 
                     cfg.ReceiveEndpoint("report-generated-event-queue", e =>
                     {
                         e.ConfigureConsumer<ReportGeneratedEventConsumer>(context);
                     });
+
                 });
             });
 
@@ -59,6 +63,8 @@ namespace PhoneBookApp.Report.Application
 
             // FluentValidation
             services.AddValidatorsFromAssemblyContaining<ReportCreateRequestValidator>();
+            
+            services.AddFluentValidationAutoValidation(); 
         }
     }
 }

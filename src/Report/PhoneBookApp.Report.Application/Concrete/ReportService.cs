@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using PhoneBookApp.Report.Application.Abstract;
 using PhoneBookApp.Report.Domain.DataTransferObjects.Response;
 using PhoneBookApp.Report.Domain.Enums;
@@ -10,7 +11,11 @@ using PhoneBookApp.Shared.Infrastructure.Abstract;
 
 namespace PhoneBookApp.Report.Application.Concrete
 {
-    public class ReportService(IReportRepository _reportRepository, IMapper _mapper, IPublishEndpoint _publishEndpoint)
+    public class ReportService(
+        IReportRepository _reportRepository,
+        IReportDetailRepository _reportDetailRepository,
+        IMapper _mapper,
+        IPublishEndpoint _publishEndpoint)
         : IReportService
     {
         public async Task<Result<Guid>> StartReportAsync(string name, CancellationToken cancellationToken = default)
@@ -43,7 +48,7 @@ namespace PhoneBookApp.Report.Application.Concrete
 
             return Result<string>.Success(report.Status.ToString());
         }
-        
+
         public async Task<Result<List<ReportResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             List<Domain.Concrete.Report> reports = await _reportRepository.GetAllAsync(cancellationToken);
@@ -53,11 +58,19 @@ namespace PhoneBookApp.Report.Application.Concrete
 
         public async Task<Result<ReportResponse>> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            Domain.Concrete.Report? report = await _reportRepository.GetByIdAsync(id, cancellationToken);
+            Domain.Concrete.Report? report = await _reportRepository.GetDbSet()
+                .Include(x => x.ReportDetails)
+                .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
             if (report == null)
                 return Result<ReportResponse>.Fail("Rapor bulunamadı");
 
             ReportResponse data = _mapper.Map<ReportResponse>(report);
+
+            List<ReportDetailResponse> details = _mapper.Map<List<ReportDetailResponse>>(
+                await _reportDetailRepository.GetAllAsync(x => x.ReportId.Equals(id), cancellationToken));
+            data.Details = details;
+
             return Result<ReportResponse>.Success(data);
         }
     }

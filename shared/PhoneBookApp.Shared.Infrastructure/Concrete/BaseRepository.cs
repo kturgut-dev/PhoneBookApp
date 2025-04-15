@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using PhoneBookApp.Shared.Core.Abstract;
 using PhoneBookApp.Shared.Infrastructure.Abstract;
 
@@ -43,6 +44,18 @@ namespace PhoneBookApp.Shared.Infrastructure.Concrete
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public Task<List<TModel>> GetAllAsync(Expression<Func<TModel, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            return predicate == null
+                ? GetAllAsync(cancellationToken)
+                : _dbSet.AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
+        }
+
+        public DbSet<TModel> GetDbSet()
+        {
+            return _context.Set<TModel>();
         }
     }
 }
