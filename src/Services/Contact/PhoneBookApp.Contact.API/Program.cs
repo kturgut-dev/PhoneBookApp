@@ -46,6 +46,11 @@ app.UseSwaggerUI();
 // if (app.Environment.IsDevelopment())
 // {
 // }
+// if (app.Environment.IsDevelopment())
+// {
+    app.UseSwagger();
+    app.UseSwaggerUI();
+// }
 
 await app.Services.EnsureMigrationAsync<ContactDbContext>();
 
