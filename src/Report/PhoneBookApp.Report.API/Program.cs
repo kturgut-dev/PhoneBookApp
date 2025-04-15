@@ -28,7 +28,7 @@ builder.Services.AddSwaggerGen();
 
 
 
-
+if (!builder.Environment.IsDevelopment())
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(80); // gateway ile uyumlu olmalı

@@ -46,6 +46,8 @@ public class GenerateReportCommandConsumer(ContactDbContext _contactDbContext, I
             
             // thread sleep for 5 seconds - uzun sürmesi için
             await Task.Delay(5000);
+            
+            Console.WriteLine($"GenerateReportCommandConsumer: ReportId: {context.Message.ReportId}, Details Count: {details.Count}");
 
             await _publishEndpoint.Publish(new ReportGeneratedEvent
             {

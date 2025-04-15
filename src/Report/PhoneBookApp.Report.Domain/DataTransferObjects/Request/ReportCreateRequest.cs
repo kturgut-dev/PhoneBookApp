@@ -2,7 +2,7 @@
 {
     public class ReportCreateRequest
     {
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
         // public DateTime RequestedAt { get; set; } = DateTime.UtcNow;
     }
 }

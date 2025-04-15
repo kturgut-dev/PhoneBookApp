@@ -33,16 +33,19 @@ namespace PhoneBookApp.Report.Application
                     string host = _configuration["RabbitMq:Host"];
                     ushort port = ushort.Parse(_configuration["RabbitMq:Port"] ?? "5672");
 
-                    cfg.Host("rabbitmq", h =>
+                    cfg.Host(host, h =>
                     {
                         h.Username(_configuration["RabbitMq:Username"]);
                         h.Password(_configuration["RabbitMq:Password"]);
                     });
+                    
+                    cfg.ConfigureEndpoints(context);
 
                     cfg.ReceiveEndpoint("report-generated-event-queue", e =>
                     {
                         e.ConfigureConsumer<ReportGeneratedEventConsumer>(context);
                     });
+
                 });
             });
 

@@ -1,6 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { createReport, getReports, getReportStatus } from '@/services/reportService'
+import {ref, onMounted} from 'vue'
+import {createReport, getReports, getReportStatus} from '@/services/reportService'
+import { useRouter } from 'vue-router'
+
+
+const router = useRouter()
 
 const reports = ref([])
 const reportName = ref('')
@@ -25,7 +29,7 @@ onMounted(fetchReports)
     <h4>Rapor Listesi</h4>
 
     <div class="d-flex mb-3">
-      <input v-model="reportName" class="form-control me-2" placeholder="Rapor Adı Girin" />
+      <input v-model="reportName" class="form-control me-2" placeholder="Rapor Adı Girin"/>
       <button class="btn btn-primary" @click="requestReport">Rapor Oluştur</button>
     </div>
 
@@ -35,6 +39,7 @@ onMounted(fetchReports)
         <th>Ad</th>
         <th>Tarih</th>
         <th>Durum</th>
+        <th>#</th>
       </tr>
       </thead>
       <tbody>
@@ -42,6 +47,9 @@ onMounted(fetchReports)
         <td>{{ report.name }}</td>
         <td>{{ new Date(report.requestedAt).toLocaleString() }}</td>
         <td>{{ report.status }}</td>
+        <td>
+          <button class="btn btn-primary" @click="router.push(`/report/${item.id}`)">Detay</button>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -13,3 +13,7 @@ export function getReports() {
 export function getReportStatus(id) {
   return axios.get(`${API}/${id}/status`)
 }
+
+export function getReportById(id) {
+  return axios.get(`${API}/${id}`)
+}

@@ -28,13 +28,11 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
-
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(80); // gateway ile uyumlu olmalı
-});
+if (!builder.Environment.IsDevelopment())
+    builder.WebHost.ConfigureKestrel(serverOptions =>
+    {
+        serverOptions.ListenAnyIP(80); // gateway ile uyumlu olmalı
+    });
 
 var app = builder.Build();
 
