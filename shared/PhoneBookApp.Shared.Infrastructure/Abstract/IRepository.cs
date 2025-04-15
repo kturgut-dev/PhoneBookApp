@@ -1,4 +1,7 @@
-﻿namespace PhoneBookApp.Shared.Infrastructure.Abstract
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+
+namespace PhoneBookApp.Shared.Infrastructure.Abstract
 {
     public interface IRepository<TModel> where TModel : class
     {
@@ -9,5 +12,11 @@
         Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        
+        Task<List<TModel>> GetAllAsync(
+            Expression<Func<TModel, bool>> predicate,
+            CancellationToken cancellationToken = default);
+        
+        DbSet<TModel> GetDbSet();
     }
 }

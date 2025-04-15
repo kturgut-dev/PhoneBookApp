@@ -17,7 +17,7 @@ docker-compose up --build -d
 ### 2. Web projesi dizinine geç
 
 ````
-cd web/
+cd web/phone-book-app/
 ````
 
 

@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,7 +33,7 @@ namespace PhoneBookApp.Contact.Application
                     string host = _configuration["RabbitMq:Host"];
                     ushort port = ushort.Parse(_configuration["RabbitMq:Port"] ?? "5672");
 
-                    cfg.Host("rabbitmq", h =>
+                    cfg.Host(host, h =>
                     {
                         h.Username(_configuration["RabbitMq:Username"]);
                         h.Password(_configuration["RabbitMq:Password"]);
@@ -45,7 +46,7 @@ namespace PhoneBookApp.Contact.Application
                 });
             });
 
-            services.AddMassTransitHostedService(); // <== bu satır burada olacak
+            services.AddMassTransitHostedService();
 
             // Services
             services.AddScoped<IContactService, ContactService>();
@@ -60,6 +61,9 @@ namespace PhoneBookApp.Contact.Application
 
             // FluentValidation
             services.AddValidatorsFromAssemblyContaining<ContactCreateRequestValidator>();
+            
+            services.AddFluentValidationAutoValidation(); 
+
         }
     }
 }

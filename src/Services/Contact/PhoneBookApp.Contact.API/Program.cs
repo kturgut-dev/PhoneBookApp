@@ -13,15 +13,38 @@ Startup startup = new(builder.Configuration, builder.Environment);
 startup.ConfigureServices(builder.Services);
 
 builder.Services.AddControllers();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+if (!builder.Environment.IsDevelopment())
+    builder.WebHost.ConfigureKestrel(serverOptions =>
+    {
+        serverOptions.ListenAnyIP(80); // gateway ile uyumlu olmalı
+    });
+
 var app = builder.Build();
+
+app.UseRouting(); // (ekle)
+app.UseCors("AllowAll");
 
 // if (app.Environment.IsDevelopment())
 // {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
+// if (app.Environment.IsDevelopment())
+// {
 // }
 
 await app.Services.EnsureMigrationAsync<ContactDbContext>();

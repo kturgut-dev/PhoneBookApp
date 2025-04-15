@@ -11,6 +11,8 @@ public class ReportGeneratedEventConsumer(ReportDbContext _reportDbContext) : IC
 {
     public async Task Consume(ConsumeContext<ReportGeneratedEvent> context)
     {
+        Console.WriteLine($"[REPORT API] TETIKLENDI: {context.Message.ReportId}");
+        
         List<ReportDetail> details = context.Message.Details.Select(x => new ReportDetail
         {
             ReportId = context.Message.ReportId, 
@@ -18,13 +20,28 @@ public class ReportGeneratedEventConsumer(ReportDbContext _reportDbContext) : IC
             PersonCount = x.PersonCount,
             PhoneNumberCount = x.PhoneNumberCount,
         }).ToList();
+        
+        
+        
+        Console.WriteLine($"ReportGeneratedEventConsumer: ReportId: {context.Message.ReportId}, Details Count: {details.Count}");
 
-        await _reportDbContext.ReportDetails.AddRangeAsync(details);
+        foreach (var detail in details)
+        {
+            bool exists = await _reportDbContext.ReportDetails
+                .AnyAsync(x => x.ReportId == detail.ReportId && x.Location == detail.Location);
+
+            if (!exists)
+            {
+                await _reportDbContext.ReportDetails.AddAsync(detail);
+            }
+        }
+        // await _reportDbContext.ReportDetails.AddRangeAsync(details);
 
         Domain.Concrete.Report? report = await _reportDbContext.Reports.FirstOrDefaultAsync(x => x.Id == context.Message.ReportId);
         if (report != null)
         {
             report.Status = ReportStatus.Completed;
+            _reportDbContext.Reports.Update(report);
         }
 
         await _reportDbContext.SaveChangesAsync();
