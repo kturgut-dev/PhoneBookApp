@@ -1,4 +1,4 @@
-﻿# PhoneBookApp Web Panel
+# PhoneBookApp Web Panel
 
 Bu proje, PhoneBookApp mikroservis yapısına bağlı olarak çalışan web tabanlı bir rehber yönetim panelidir. Vue.js ve Bootstrap kullanılarak geliştirilmiştir.
 
